@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1 class="title has-text-centered">
+    Welcome, {{ name }}!
+  </h1>
+
+  <div class="box has-background-grey-dark">
+  <h2 class="subtitle has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
+  <ul class="checkbox">
+    {% if api_data %}
+      {% for todo in api_data %}
+        <li class="has-text-white"> <input type="checkbox"> {{ todo.title }} - {% if todo.completed %}Completed{% else %}Not Completed{% endif %}</li>
+      {% endfor %}
+    {% else %}
+      <li>No API data available</li>
+    {% endif %}
+  </ul>
+  </div>
+{% endblock %}
