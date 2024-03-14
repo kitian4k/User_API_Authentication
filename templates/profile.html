@@ -11,9 +11,9 @@
     <ul class="checkbox">
       {% if api_data %}
         {% for todo in api_data %}
-          <li class="has-text-white is size-2"> 
+          <li class="has-text-white is-size-5"> 
             <input type="checkbox" id="todo_{{ loop.index }}" {% if todo.completed %} checked {% endif %}> 
-            <label for="todo_{{ loop.index }}">{{ todo.title }} - {% if todo.completed %}Completed{% else %}Not Completed{% endif %}</label>
+            <label for="todo_{{ loop.index }}">{{ todo.title }}</label>
           </li>
         {% endfor %}
       {% else %}

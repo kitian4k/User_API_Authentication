@@ -16,15 +16,14 @@
     </style>
 </head>
 
-
 <body>
     <section class="hero is-primary is-fullheight has-background-light">
 
         <div class="hero-head">
-            <nav class="navbar has-text-weight-bold">
+            <nav class="navbar has-text-weight-bold has-background-primary">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" >
+                        <a role="button" class="navbar-burger burger has-text-black" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" >
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
@@ -33,20 +32,20 @@
 
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
-                            <div class="navbar-item has-text-black ">
+                            <div class="navbar-item has-text-light ">
                                 {% if current_user.is_authenticated %}
                                 <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                                    Profile
+                                    PROFILE
                                 </a>
                                 <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                    Logout
+                                    LOGOUT
                                 </a>
                                 {% else %}
                                 <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                    Login
+                                    LOGIN
                                 </a>
                                 <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                    Sign Up
+                                    SIGN UP
                                 </a>
                                 {% endif %}
                             </div>
@@ -56,7 +55,7 @@
             </nav>
         </div>
 
-        <!-- login, profile, signup form shows here -->
+        <!-- login, profile, signup form shows here-->
         <div class="hero-body">
             <div class="container">
                {% block content %}
@@ -66,7 +65,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="footer">
+    <footer class="footer has-background-primary">
         <div class="content has-text-centered">
           <p>
             <strong>USER AND API AUTHENTICATION</strong> by <a href="https://github.com/kitian4k">Jan Christian Torres </a> & <a href="https://github.com/janahmorano"> Janah Patricia Morano </a>. <br> Software Developer Interns from 
@@ -106,10 +105,6 @@
             }
         });
     </script>
-    
-    
 
-    
 </body>
-
 </html>
