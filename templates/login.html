@@ -6,11 +6,12 @@
         <h3 class="title is-4 has-text-centered">LOGIN</h3>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <div class="notification is-danger">
+            <div class="notification is-light has-text-black">
                 {{ messages[0] }}
             </div>
         {% endif %}
         {% endwith %}
+        <!-- LOGIN FORM -->
         <form method="POST" action="/login">
             <div class="field">
                 <!-- <label class="label has-text-white" >EMAIL</label> -->

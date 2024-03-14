@@ -11,12 +11,11 @@
     
     <style>
         body {
-            font-family: 'Roboto', sans-serif; /* Replace 'Your Font Name' with the desired font family */
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 </head>
 
-</head>
 
 <body>
     <section class="hero is-primary is-fullheight has-background-light">
@@ -65,6 +64,7 @@
         </div>
     </section>
 
+    <!-- footer -->
     <footer class="footer">
         <div class="content has-text-centered">
           <p>
@@ -74,34 +74,27 @@
         </div>
       </footer>
 
+    <!-- nav burger script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Get all "navbar-burger" elements
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
         
-            // Check if there are any navbar burgers
             if ($navbarBurgers.length > 0) {
         
-                // Add a click event on each of them
                 $navbarBurgers.forEach( el => {
                     el.addEventListener('click', () => {
-        
-                        // Get the target from the "data-target" attribute
+
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
-        
-                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+
                         el.classList.toggle('is-active');
                         $target.classList.toggle('is-active');
-        
-                        // Custom logic to change burger icon appearance
+
                         if (el.classList.contains('is-active')) {
-                            // Burger is active, change its appearance
                             el.querySelector('span:nth-child(2)').style.transform = 'rotate(45deg)';
                             el.querySelector('span:first-child').style.transform = 'rotate(45deg)';
                             el.querySelector('span:last-child').style.transform = 'rotate(-45deg)';
                         } else {
-                            // Burger is inactive, revert its appearance
                             el.querySelector('span:nth-child(2)').style.transform = '';
                             el.querySelector('span:first-child').style.transform = '';
                             el.querySelector('span:last-child').style.transform = '';
