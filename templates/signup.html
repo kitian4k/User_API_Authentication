@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="column is-4 is-offset-4">
-    <h3 class="title has-text-centered">Sign Up</h3>
     <div class="box has-background-grey-dark">
+        <h3 class="title has-text-centered">SIGN UP</h3>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="notification is-danger">
@@ -13,27 +13,34 @@
         {% endwith %}
         <form action="/signup" method="POST">
             <div class="field">
-                <label class="label is-left has-text-white">EMAIL</label>
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                <div class="control has-icons-left">
+                    <input class="input is-large" type="email" name="email" placeholder="Email Address" autofocus="">
+                    <span class="icon is-small is-left"> 
+                        <i class="fa fa-envelope fa-xs"></i> 
+                    </span> 
                 </div>
             </div>
 
             <div class="field">
-                <label class="label is-left has-text-white">NAME</label>
-                <div class="control">
+                <div class="control has-icons-left">
                     <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                    <span class="icon is-small is-left"> 
+                        <i class="fa fa-user"></i> 
+                    </span> 
                 </div>
             </div>
 
             <div class="field">
-                <label class="label is-left has-text-white">PASSWORD</label>
-                <div class="control">
+                <div class="control has-icons-left">
                     <input class="input is-large" type="password" name="password" placeholder="Password">
+                    <span class="icon is-small is-left"> 
+                        <i class="fa fa-lock"></i> 
+                    </span> 
                 </div>
             </div>
-
-            <button class="button is-block is-info is-large is-fullwidth has-text-white">Sign Up</button>
+            <div class="buttons is-centered">
+                <button class="button is-block is-medium">SIGN UP</button>
+                </div>
         </form>
     </div>
 </div>

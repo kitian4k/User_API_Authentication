@@ -6,8 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User and API Auth</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Replace 'Your Font Name' with the desired font family */
+        }
+    </style>
+</head>
 
 </head>
 
@@ -18,7 +25,7 @@
             <nav class="navbar has-text-weight-bold">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA">
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" >
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
@@ -27,7 +34,7 @@
 
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
-                            <div class="navbar-item">
+                            <div class="navbar-item ">
                                 {% if current_user.is_authenticated %}
                                 <a href="{{ url_for('main.profile') }}" class="navbar-item">
                                     Profile
@@ -78,11 +85,28 @@
                         el.classList.toggle('is-active');
                         $target.classList.toggle('is-active');
         
+                        // Custom logic to change burger icon appearance
+                        if (el.classList.contains('is-active')) {
+                            // Burger is active, change its appearance
+                            el.querySelector('span:nth-child(2)').style.transform = 'rotate(45deg)';
+                            el.querySelector('span:first-child').style.transform = 'rotate(45deg)';
+                            el.querySelector('span:last-child').style.transform = 'rotate(-45deg)';
+                        } else {
+                            // Burger is inactive, revert its appearance
+                            el.querySelector('span:nth-child(2)').style.transform = '';
+                            el.querySelector('span:first-child').style.transform = '';
+                            el.querySelector('span:last-child').style.transform = '';
+                        }
+        
                     });
                 });
             }
         });
     </script>
+    
+    
+
+    
 </body>
 
 </html>

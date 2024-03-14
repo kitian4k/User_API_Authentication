@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="column is-4 is-offset-4">
-    <h3 class="title has-text-centered">LOGIN</h3>
     <div class="box has-background-grey-dark">
+        <h3 class="title has-text-centered">LOGIN</h3>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="notification is-danger">
@@ -13,16 +13,22 @@
         {% endwith %}
         <form method="POST" action="/login">
             <div class="field">
-                <label class="label has-text-white" >EMAIL</label>
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
+                <!-- <label class="label has-text-white" >EMAIL</label> -->
+                <div class="control has-icons-left">
+                    <input class="input is-large" type="email" name="email" placeholder="Email Address" autofocus="">
+                    <span class="icon is-small is-left"> 
+                        <i class="fa fa-envelope fa-xs"></i> 
+                    </span> 
                 </div>
             </div>
 
             <div class="field">
-                <label class="label has-text-white" >PASSWORD</label>
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
+                <!-- <label class="label has-text-white" >PASSWORD</label> -->
+                <div class="control has-icons-left">
+                    <input class="input is-large" type="password" name="password" placeholder="Password">
+                    <span class="icon is-small is-left is-right"> 
+                        <i class="fa fa-lock"></i>
+                    </span> 
                 </div>
             </div>
             <div class="field">
@@ -31,7 +37,9 @@
                     Remember me
                 </label>
             </div>
-            <button class="button is-block is-info is-large is-fullwidth">Log In</button>
+            <div class="buttons is-centered">
+            <button class="button is-block is-medium">LOGIN</button>
+            </div>
         </form>
     </div>
 </div>

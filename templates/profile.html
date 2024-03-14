@@ -6,16 +6,37 @@
     Welcome, {{ name }}!
   </h1>
 
-  <div class="box has-background-grey-dark">
-  <h2 class="subtitle has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
-  <ul class="checkbox">
-    {% if api_data %}
-      {% for todo in api_data %}
-        <li class="has-text-white"> <input type="checkbox"> {{ todo.title }} - {% if todo.completed %}Completed{% else %}Not Completed{% endif %}</li>
-      {% endfor %}
-    {% else %}
-      <li>No API data available</li>
-    {% endif %}
-  </ul>
+  <div class="box has-background-grey-dark has-text-centered is-size-5">
+    <h2 class="title has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
+    <ul class="checkbox">
+      {% if api_data %}
+        {% for todo in api_data %}
+          <li class="has-text-white"> 
+            <input type="checkbox" id="todo_{{ loop.index }}" {% if todo.completed %} checked {% endif %}> 
+            <label for="todo_{{ loop.index }}">{{ todo.title }} - {% if todo.completed %}Completed{% else %}Not Completed{% endif %}</label>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li>No API data available</li>
+      {% endif %}
+    </ul>
   </div>
+  
+  <script>
+    // JavaScript code to mark checkboxes as completed
+    document.addEventListener("DOMContentLoaded", function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener("change", function() {
+          var labelText = this.nextElementSibling;
+          if (this.checked) {
+            labelText.textContent = labelText.textContent.replace('Not Completed', 'Completed');
+          } else {
+            labelText.textContent = labelText.textContent.replace('Completed', 'Not Completed');
+          }
+        });
+      });
+    });
+  </script>
+  
 {% endblock %}
