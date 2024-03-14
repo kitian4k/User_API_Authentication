@@ -2,16 +2,16 @@
 
 {% block content %}
 
-  <h1 class="title has-text-centered">
+  <h1 class="title has-text-centered has-text-dark">
     Welcome, {{ name }}!
   </h1>
 
-  <div class="box has-background-grey-dark has-text-centered is-size-5">
+  <div class="box has-background-dark has-text-centered is-size-5">
     <h2 class="title has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
     <ul class="checkbox">
       {% if api_data %}
         {% for todo in api_data %}
-          <li class="has-text-white"> 
+          <li class="has-text-white is size-2"> 
             <input type="checkbox" id="todo_{{ loop.index }}" {% if todo.completed %} checked {% endif %}> 
             <label for="todo_{{ loop.index }}">{{ todo.title }} - {% if todo.completed %}Completed{% else %}Not Completed{% endif %}</label>
           </li>

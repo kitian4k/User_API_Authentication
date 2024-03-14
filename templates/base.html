@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <section class="hero is-primary is-fullheight is-warning-dark">
+    <section class="hero is-primary is-fullheight has-background-light">
 
         <div class="hero-head">
             <nav class="navbar has-text-weight-bold">
@@ -34,7 +34,7 @@
 
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
-                            <div class="navbar-item ">
+                            <div class="navbar-item has-text-black ">
                                 {% if current_user.is_authenticated %}
                                 <a href="{{ url_for('main.profile') }}" class="navbar-item">
                                     Profile
