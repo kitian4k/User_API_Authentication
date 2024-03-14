@@ -1,11 +1,13 @@
-# __init__.py
+# In __init__.py
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_httpauth import HTTPBasicAuth
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
+auth = HTTPBasicAuth()
 
 def create_app():
     app = Flask(__name__)
@@ -33,6 +35,10 @@ def create_app():
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    # Register API blueprint
+    from .api import api as api_blueprint
+    app.register_blueprint(api_blueprint)
 
     # Create the database tables
     with app.app_context():
