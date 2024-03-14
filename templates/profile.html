@@ -2,41 +2,46 @@
 
 {% block content %}
 
-  <h1 class="title has-text-centered has-text-dark">
-    Welcome, {{ name }}!
-  </h1>
+<h1 class="title has-text-centered has-text-dark">
+  Welcome, {{ name }}!
+</h1>
+<div class="columns is-centered">
+  <div class="column is-7">
+    <div class="box has-background-dark has-text-centered is-size-5">
+      
 
-  <div class="box has-background-dark has-text-centered is-size-5">
-    <h2 class="title has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
-    <ul class="checkbox">
-      {% if api_data %}
-        {% for todo in api_data %}
-          <li class="has-text-white is-size-5"> 
-            <input type="checkbox" id="todo_{{ loop.index }}" {% if todo.completed %} checked {% endif %}> 
-            <label for="todo_{{ loop.index }}">{{ todo.title }}</label>
-          </li>
-        {% endfor %}
-      {% else %}
-        <li>No API data available</li>
-      {% endif %}
-    </ul>
+      <h2 class="title has-text-centered is-size-3 has-text-white">YOUR HOMEWORKS:</h2>
+      <ul class="checkbox">
+        {% if api_data %}
+          {% for todo in api_data %}
+            <li class="has-text-white is-size-5 has-text-justified">
+              <input type="checkbox" id="todo_{{ loop.index }}" {% if todo.completed %} checked {% endif %}>
+              <label for="todo_{{ loop.index }}">{{ todo.title }}</label>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li>No API data available</li>
+        {% endif %}
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    // JavaScript code to mark checkboxes as completed
-    document.addEventListener("DOMContentLoaded", function() {
-      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener("change", function() {
-          var labelText = this.nextElementSibling;
-          if (this.checked) {
-            labelText.textContent = labelText.textContent.replace('Not Completed', 'Completed');
-          } else {
-            labelText.textContent = labelText.textContent.replace('Completed', 'Not Completed');
-          }
-        });
+</div>
+
+<script>
+  // JavaScript code to mark checkboxes as completed
+  document.addEventListener("DOMContentLoaded", function() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener("change", function() {
+        var labelText = this.nextElementSibling;
+        if (this.checked) {
+          labelText.textContent = labelText.textContent.replace('Not Completed', 'Completed');
+        } else {
+          labelText.textContent = labelText.textContent.replace('Completed', 'Not Completed');
+        }
       });
     });
-  </script>
-  
+  });
+</script>
+
 {% endblock %}
