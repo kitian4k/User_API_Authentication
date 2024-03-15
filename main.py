@@ -4,7 +4,7 @@ import requests
 from .models import Todo
 from . import auth
 
-main = Blueprint('main', __name__)
+main = Blueprint('main', name)
 
 @main.route('/')
 def index():
